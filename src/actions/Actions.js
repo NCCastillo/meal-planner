@@ -1,0 +1,4 @@
+export const SIGN_IN_USER = 'SIGN_IN_USER';
+export const SIGN_IN_FETCHING = 'SIGN_IN_FETCHING';
+export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
+export const SIGN_IN_FAILURE = 'SIGN_IN_FAILURE';

@@ -1,10 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
 
+import store from './Store';
+import Session from './components/Session';
+import Registration from './components/Registration';
+
+const router = (
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path='/' component={App}>
+        <IndexRoute component={Registration} />
+        <Route path='/sign_in' component={Session} />
+        <Route path='/sign_up' component={Registration} />
+      </Route>
+    </Router>
+  </Provider>
+)
+
 ReactDOM.render(
-  <App />,
+  router,
   document.getElementById('root')
 );
 
