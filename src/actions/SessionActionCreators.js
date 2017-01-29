@@ -1,57 +1,14 @@
 import fetch from 'isomorphic-fetch';
+import { browserHistory } from 'react-router';
 import { SIGN_IN_FETCHING, SIGN_IN_SUCCESS, SIGN_IN_FAILURE } from './Actions';
 
-// const base_url = 'http://localhost:4500';
-
-// fetch('/users', {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify({
-//     name: 'Hubot',
-//     login: 'hubot',
-//   })
-// })
-
-// {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         user: {
-//           email: data.email, 
-//           password: data.password
-//         }
-//       })
-
-// return sessionApi.login(credentials).then(response => {
-//   sessionStorage.setItem('jwt', response.jwt);
-//   dispatch(loginSuccess());
-// }).catch(error => {
-//   throw(error);
-// });
-
-// .then(response =>
-//   response.json().then(json => ({
-//     status: response.status,
-//     json
-//   })
-// ))
-// .then(response => {
-//         if (response.status >= 200 && response.status < 300) {
-//             return response.json();
-//           } else {
-//             var error = new Error(response.statusText)
-//             error.response = response
-//             throw error
-//           }
-//       })
+const base_url = 'http://localhost:4500';
 
 export function signInUser(data) {
   return function(dispatch) {
-    return fetch('http://localhost:4500/api/v1/login', {
+    dispatch(fetchingUser());
+    
+    return fetch(`${base_url}/api/v1/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -72,11 +29,12 @@ export function signInUser(data) {
     .then(({ status, json }) => {
       if (status >= 400) {
         console.log("in status 400");
-        dispatch(signInFailure(json.error));
+        dispatch(signInFailure(json.errors));
       } else {
         console.log("in status 200");
         sessionStorage.setItem('jwt', json.jwt);
         dispatch(signInSuccess());
+        browserHistory.push('/');
       }
     })
     .catch(error => {
@@ -89,15 +47,14 @@ export function signInUser(data) {
 
 export function signInSuccess() {
   return {
-    type: SIGN_IN_SUCCESS,
-    authenticated: !!sessionStorage.jwt
+    type: SIGN_IN_SUCCESS
   }
 } 
 
-export function signInFailure(error) {
+export function signInFailure(errors) {
   return {
     type: SIGN_IN_FAILURE,
-    error: error
+    errors: errors
   }
 }
 

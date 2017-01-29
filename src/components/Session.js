@@ -3,32 +3,36 @@ import { connect } from 'react-redux';
 import { signInUser } from '../actions/SessionActionCreators';
 
 import '../css/signin.css';
+import '../css/forms.css';
 
 class Session extends Component {
   handleSubmit = (e) => {
-    console.log("handled the submit");
     //using refs here for now. should be using local component state here??
     const { email, password } = this.refs
-    // debugger;
+    const { dispatch } = this.props
+
     e.preventDefault();
-    // user fills out form and hits submit
-    // dispatch action to "login" user
-    // api receives post and if authenticated return json with token
-    // login action receives response. If successfull then store token in session storage
-    // login action then redirects to dashboard
-    this.props.signInUser({email: email.value, password: password.value});
+    
+    dispatch(signInUser({email: email.value, password: password.value}));
   }
 
   render() {
+    const { errors } = this.props;
+
     return (
       <div className="row">
         <div className="col-md-6 col-md-offset-3">
+          { errors.length > 0  && 
+            <div className="form-error">
+              { errors.map((error, i) => <li key={i}>{error}</li>) }
+            </div>
+          }
           <div className="form-container">
             <form onSubmit={this.handleSubmit}>
               <div className="form-group has-feedback">
                 <label htmlFor="signin-email">Email address</label>
                 <input type="email" ref="email" className="form-control" id="signin-email" placeholder="Email" />
-                <span className="glyphicon glyphicon-inbox form-control-feedback"></span>
+                <span className="glyphicon glyphicon-envelope form-control-feedback"></span>
               </div>
               <div className="form-group has-feedback">
                 <label htmlFor="sigin-password">Password</label>
@@ -46,6 +50,10 @@ class Session extends Component {
   }
 }
 
-// Only passing one action to connect. Don't need bindaction creators in this case.
-// just pass the action directly. If I use bindaction creators thenI will need to import it from
-export default connect(null, {signInUser})(Session);
+const mapStateToProps = (state) => {
+  return {
+    errors: state.session.errors
+  }
+}
+
+export default connect(mapStateToProps)(Session);

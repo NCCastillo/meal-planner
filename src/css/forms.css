@@ -1,0 +1,14 @@
+.form-error {
+  background: #a94442;
+  border-radius: 2px;
+}
+
+.form-error li {
+  padding: 3px;
+  list-style: none;
+  font-weight: bold;
+}
+
+
+
+

@@ -1,16 +1,23 @@
-import { SIGN_IN_SUCCESS, SIGN_IN_FAILURE } from '../actions/Actions';
+import { SIGN_IN_SUCCESS, SIGN_IN_FAILURE, SIGN_IN_FETCHING } from '../actions/Actions';
 
-function session(state={}, action) {
+const initialState = {
+  authenticated: !!sessionStorage.jwt,
+  isFetching: false,
+  errors: []
+};
+
+function session(state = initialState, action) {
 
   switch (action.type) {
     case SIGN_IN_SUCCESS:
       // need to return new state here. for now just return it.
-      console.log("SIGN_IN_SUCCESS was called");
-      return { ...state, authenticated: action.authenticated };
+      console.log("in SIGN_IN_SUCCESS reducer");
+      return { ...state, isFetching: false, authenticated: !!sessionStorage.jwt };
     case SIGN_IN_FAILURE:
-      console.log("SIGN_IN_FAILURE was called");
-      console.log(action.error);
-      return { ...state, error: action.error };
+      console.log(action.errors);
+      return { ...state, errors: action.errors, isFetching: false , authenticated: !!sessionStorage.jwt };
+    case SIGN_IN_FETCHING:
+    return { ...state, isFetching: true , authenticated: !!sessionStorage.jwt};
     default:
       return state;  
   }
