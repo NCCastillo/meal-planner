@@ -1,16 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { Menu, Icon, Dropdown } from 'semantic-ui-react'
 
 const NavBar = () => (
-  <nav className="navbar navbar-default">
-    <div className="container">
-      <div className="navbar-header">
-        <Link to='/' className="navbar-brand">
-          <img alt="Brand" src="..." />
-        </Link>
-      </div>
-    </div>
-  </nav>
+  <Menu attached='top'>
+    <Dropdown item icon='wrench' simple />
+  </Menu>
 )
 
 export default NavBar;

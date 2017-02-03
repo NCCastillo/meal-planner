@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './components/App';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'font-awesome/css/font-awesome.css'
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'font-awesome/css/font-awesome.css'
+import 'semantic-ui-css/semantic.min.css';
 import './css/main.css'
 
 import store from './Store';
