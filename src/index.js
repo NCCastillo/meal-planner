@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css'
+import './css/main.css'
 
 import store from './Store';
 import Session from './components/Session';

@@ -20,7 +20,6 @@ export default function(WrappedComponent) {
   }
 
   function mapStateToProps(state) {
-    console.log(state);
     return {
       authenticated: state.session.authenticated
     }

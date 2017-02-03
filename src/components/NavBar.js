@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const NavBar = () => (
   <nav className="navbar navbar-default">
     <div className="container">
       <div className="navbar-header">
-        <a className="navbar-brand" href="#">
+        <Link to='/' className="navbar-brand">
           <img alt="Brand" src="..." />
-        </a>
+        </Link>
       </div>
     </div>
   </nav>
