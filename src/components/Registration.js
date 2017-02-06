@@ -26,45 +26,40 @@ class Registration extends Component {
     const { errors } = this.props;
 
     return (
-      <div className="row">
-        <div className="col-md-6 col-md-offset-3">
-          { errors.length > 0  && 
-            <div className="form-error">
-              { errors.map((error, i) => <li key={i}>{error}</li>) }
-            </div>
-          }
-          <div className="form-container">
-            <form onSubmit={this.handleSubmit}>
-              <div className="form-group has-feedback">
-                <label htmlFor="register-user-email">Email Address</label>
-                <input type="email" ref="email" className="form-control" id="register-user-email"/>
-                <span className="glyphicon glyphicon-envelope form-control-feedback"></span>
-              </div>
-              <div className="form-group has-feedback">
-                <label htmlFor="register-user-first-name">First Name</label>
-                <input type="text" ref="firstName" className="form-control" id="register-user-first-named"/>
-                <span className="glyphicon glyphicon-tag form-control-feedback"></span>
-              </div>
-              <div className="form-group has-feedback">
-                <label htmlFor="register-user-last-name">Last Name</label>
-                <input type="text" ref="lastName" className="form-control" id="register-user-last-name" />
-                <span className="glyphicon glyphicon-tag form-control-feedback"></span>
-              </div>
-              <div className="form-group has-feedback">
-                <label htmlFor="register-user-password">Password</label>
-                <input type="password" ref="password" className="form-control" id="register-user-password"/>
-                <span className="glyphicon glyphicon-lock form-control-feedback"></span>
-              </div>
-              <div className="form-group has-feedback">
-                <label htmlFor="register-user-password">Password Confirmation</label>
-                <input type="password" ref="passwordConfirmation" className="form-control" id="register-user-password-confirmation" />
-                <span className="glyphicon glyphicon-lock form-control-feedback"></span>
-              </div>
-              <div className="form-group">
-                <button type="submit" className="btn btn-primary btn-lg btn-block">Sign Up</button>
-              </div>
-            </form>    
+      <div className="menu-form-container">
+        { errors.length > 0  && 
+          <div className="toast toast-danger">
+            <button className="btn btn-clear float-right"></button>
+            <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
+            { errors.map((error, i) => <li key={i}>{error}</li>) }
           </div>
+        }
+        <div className="form-container">
+          <form onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label className="form-label" htmlFor="register-user-email">Email Address</label>
+              <input type="email" ref="email" className="form-input" id="register-user-email"/>
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="register-user-first-name">First Name</label>
+              <input type="text" ref="firstName" className="form-input" id="register-user-first-named"/>
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="register-user-last-name">Last Name</label>
+              <input type="text" ref="lastName" className="form-input" id="register-user-last-name" />
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="register-user-password">Password</label>
+              <input type="password" ref="password" className="form-input" id="register-user-password"/>
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="register-user-password">Password Confirmation</label>
+              <input type="password" ref="passwordConfirmation" className="form-input" id="register-user-password-confirmation" />
+            </div>
+            <div className="form-group">
+              <button type="submit" className="btn btn-primary btn-lg btn-block">Sign Up</button>
+            </div>
+          </form>    
         </div>
       </div>
     )
