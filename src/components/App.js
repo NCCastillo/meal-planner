@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import NavBar from './NavBar';
 
 
@@ -14,9 +15,21 @@ class App extends Component {
           <div className="col-lg-3 no-padding">
             <div className="side-bar-left">
               <ul>
-                <li><i className="fa fa-tachometer" aria-hidden="true"></i>Dashboard</li>
-                <li><i className="fa fa-calendar" aria-hidden="true"></i>Menus</li>
-                <li><i className="fa fa-cutlery" aria-hidden="true"></i>Meals</li>
+                <li>
+                  <Link to='/protected'>
+                    <i className="fa fa-home" aria-hidden="true"></i>Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/protected'>
+                    <i className="fa fa-calendar" aria-hidden="true"></i>Menus
+                  </Link>
+                </li>  
+                <li>
+                  <Link to='/protected'>
+                    <i className="fa fa-cutlery" aria-hidden="true"></i>Meals
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

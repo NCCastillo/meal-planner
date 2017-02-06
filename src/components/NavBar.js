@@ -7,7 +7,7 @@ const NavBar = () => (
     <div className="container">
       <div className="navbar-section">
         <Link to='/' className="navbar-brand">
-          <i className="fa fa-cogs" aria-hidden="true"></i>Meal Planner
+          <h3><i className="fa fa-asterisk" aria-hidden="true"></i>YUM<i className="fa fa-exclamation" aria-hidden="true"></i></h3>
         </Link>
       </div>
     </div>

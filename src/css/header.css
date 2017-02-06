@@ -1,4 +1,11 @@
 #meal-planner-header {
   height: 60px;
-  border-bottom: 2px solid  blue;
+  border-bottom: 2px solid  #2B2A26;
+  background-color: #F37F22;
+  /*background-color: #FBAE3F;*/
+}
+
+#meal-planner-header a {
+  text-decoration: none;
+  color: #fff;
 }
