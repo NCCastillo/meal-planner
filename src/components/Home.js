@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BlankSlate from './BlankSlate';
+import { Link } from 'react-router';
 import '../css/blankSlate.css';
 
 class Home extends Component {
@@ -8,10 +9,11 @@ class Home extends Component {
       <BlankSlate 
         iconName='fa fa-calendar fa-3x' 
         title="Hey there! Looks like you don't have any menus as yet."
-        meta='Click start to begin meal planning.'
-        linkTo='/menu/new'
-        linkToName='empty-action btn btn-primary'
-      />
+        meta='Select your first week.'>
+        <Link to='menus/new' className="empty-action btn btn-primary"> 
+          Start
+        </Link>
+      </BlankSlate>
     )
   }
 }
