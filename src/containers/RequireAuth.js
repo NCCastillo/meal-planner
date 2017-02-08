@@ -4,6 +4,13 @@ import { browserHistory } from 'react-router';
 
 export default function(WrappedComponent) {
   class Auth extends Component {
+    // componentDidMount() {
+    //   const { dispatch } = this.props;
+
+    //   //need to create actions and reducers for this
+    //   dispatch({type: 'FETCH_CURRENT_MEAL_PLAN'});
+    // }
+
     componentWillMount() {
       if (!this.props.authenticated) {
         // replace({nextPathname: nextState.location.pathname }, '/sign_in')

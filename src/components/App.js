@@ -8,7 +8,7 @@ class App extends Component {
   
   renderLayout() {
     const { authenticated } = this.props;
-
+    // move this into its own component
     if(authenticated) {
       return [
         <div className="columns">
@@ -16,17 +16,17 @@ class App extends Component {
             <div className="side-bar-left">
               <ul>
                 <li>
-                  <Link to='/protected'>
+                  <Link to='/'>
                     <i className="fa fa-home" aria-hidden="true"></i>Home
                   </Link>
                 </li>
                 <li>
-                  <Link to='/protected'>
+                  <Link to='/menus'>
                     <i className="fa fa-calendar" aria-hidden="true"></i>Menus
                   </Link>
                 </li>  
                 <li>
-                  <Link to='/protected'>
+                  <Link to='/meals'>
                     <i className="fa fa-cutlery" aria-hidden="true"></i>Meals
                   </Link>
                 </li>
