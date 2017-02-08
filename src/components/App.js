@@ -10,7 +10,7 @@ class App extends Component {
     const { authenticated } = this.props;
     // move this into its own component
     if(authenticated) {
-      return [
+      return (
         <div className="columns">
           <div className="col-lg-3 no-padding">
             <div className="side-bar-left">
@@ -39,9 +39,9 @@ class App extends Component {
             </div>
           </div>
         </div>
-      ]
+      )
     } else {
-      return [
+      return (
         <div className="columns">
           <div className="col-lg-12 no-padding centered">
             <div id="main-content">
@@ -49,7 +49,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-      ]
+      )
     }
   }
 
