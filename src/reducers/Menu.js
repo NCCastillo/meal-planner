@@ -3,12 +3,15 @@ import { CREATE_MENU_FETCHING, CREATE_MENU_SUCCESS, CREATE_MENU_FAILURE, FETCH_C
 const initialState = {
   isFetching: false,
   errors: [],
+  currentMenu: {}
 }
 // {"menu"=>{"id"=>331, "week_of"=>"2017-02-05_2017-02-11", "menu_items"=>[]}}
 //{"menus"=>[{"id"=>342, "week_of"=>"2017-02-05_2017-02-11", "menu_items"=>[]}]}
 //[{ "id"=>menu.id, "week_of"=>"#{menu.week_of}", "menu_items"=>[] }]
 function menu(state = initialState, action) {
   switch (action.type) {
+    case FETCH_CURRENT_MEAL_SUCCESS:
+      return { ...state, isFetching: false,  currentMenu:  action.menu };
     case CREATE_MENU_SUCCESS:
       return { ...state, isFetching: false };
     case CREATE_MENU_FETCHING:

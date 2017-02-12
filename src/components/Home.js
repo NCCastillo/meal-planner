@@ -81,6 +81,7 @@ const mapStateToProps = (state) => {
   return {
     errors: state.menu.errors,
     loading: state.menu.isFetching,
+    currentMenu: state.menu.currentMenu
   }
 }
 export default connect(mapStateToProps)(Home);

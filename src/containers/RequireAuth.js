@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
+import { getCurrentMenu } from '../actions/CreateMenuActionCreators';
 
 export default function(WrappedComponent) {
   class Auth extends Component {
-    // componentDidMount() {
-    //   const { dispatch } = this.props;
+    componentDidMount() {
+      const { dispatch } = this.props;
 
-    //   //need to create actions and reducers for this
-    //   dispatch({type: 'FETCH_CURRENT_MEAL_PLAN'});
-    // }
+      dispatch(getCurrentMenu());
+    }
 
     componentWillMount() {
       if (!this.props.authenticated) {
