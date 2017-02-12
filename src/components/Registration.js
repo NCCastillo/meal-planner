@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import * as registerCreators from '../actions/RegisterUserActionCreators';
 import registerUser from '../actions/RegisterUserActionCreators';
 import '../css/forms.css';
 class Registration extends Component {
@@ -73,12 +72,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Registration);
-//user clicks on sign up
-// user fills out form and hits submit
-// form dispatches action "registerUser(with details)"
-// action posts to api and waits for response
-// when repsonse received, if  ok then store token and redirect to home
-// if not ok (400 status codes) the dispatch failure register action
-// failure action will have error message
-// reducer will store error message in state
-// component will display error.

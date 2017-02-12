@@ -10,8 +10,6 @@ function session(state = initialState, action) {
 
   switch (action.type) {
     case SIGN_IN_SUCCESS:
-      // need to return new state here. for now just return it.
-      console.log("in SIGN_IN_SUCCESS reducer");
       return { ...state, isFetching: false, authenticated: !!sessionStorage.jwt };
     case SIGN_IN_FAILURE:
       console.log(action.errors);

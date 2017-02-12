@@ -28,10 +28,8 @@ export function signInUser(data) {
     ))
     .then(({ status, json }) => {
       if (status >= 400) {
-        console.log("in status 400");
         dispatch(signInFailure(json.errors));
       } else {
-        console.log("in status 200");
         sessionStorage.setItem('jwt', json.jwt);
         dispatch(signInSuccess());
         browserHistory.push('/');

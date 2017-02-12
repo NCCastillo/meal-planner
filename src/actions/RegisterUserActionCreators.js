@@ -6,10 +6,6 @@ import { signInSuccess } from './SessionActionCreators';
 const base_url = 'http://localhost:4500';
 
 export default function resgisterUser(data) {
-  // dispatch fetching register user
-  // post data to api, do all ajax stuff here
-  console.log("inside function");
-  
   return function(dispatch) {
     dispatch(fetchingRegisterUser());
 
@@ -36,8 +32,6 @@ export default function resgisterUser(data) {
       ))
     .then(({ status, json }) => {
       if (status >= 400) {
-        console.log("in status 400 registration");
-        console.log(json);
         dispatch(resgisterUserFailure(json.errors));
       } else {
         console.log("in status 200 egistration");
