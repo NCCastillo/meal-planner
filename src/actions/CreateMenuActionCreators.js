@@ -4,7 +4,7 @@ import {
   CREATE_MENU_FETCHING, 
   CREATE_MENU_SUCCESS, 
   CREATE_MENU_FAILURE, 
-  FETCH_CURRENT_MEAL_SUCCESS 
+  FETCH_CURRENT_MENU_SUCCESS 
 } from './Actions';
 
 const base_url = 'http://localhost:4500';
@@ -105,7 +105,7 @@ export function createMenuSuccess() {
 
 export function currentMenu(menu) {
   return {
-    type: FETCH_CURRENT_MEAL_SUCCESS,
+    type: FETCH_CURRENT_MENU_SUCCESS,
     menu: menu
   }
 }

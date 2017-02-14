@@ -1,4 +1,4 @@
-import { CREATE_MENU_FETCHING, CREATE_MENU_SUCCESS, CREATE_MENU_FAILURE, FETCH_CURRENT_MEAL_SUCCESS } from '../actions/Actions';
+import { CREATE_MENU_FETCHING, CREATE_MENU_SUCCESS, CREATE_MENU_FAILURE, FETCH_CURRENT_MENU_SUCCESS } from '../actions/Actions';
 
 const initialState = {
   isFetching: false,
@@ -10,8 +10,8 @@ const initialState = {
 //[{ "id"=>menu.id, "week_of"=>"#{menu.week_of}", "menu_items"=>[] }]
 function menu(state = initialState, action) {
   switch (action.type) {
-    case FETCH_CURRENT_MEAL_SUCCESS:
-      return { ...state, isFetching: false,  currentMenu:  action.menu };
+    case FETCH_CURRENT_MENU_SUCCESS:
+      return { ...state, isFetching: false,  currentMenu:  action.menu || 'none' };
     case CREATE_MENU_SUCCESS:
       return { ...state, isFetching: false };
     case CREATE_MENU_FETCHING:
