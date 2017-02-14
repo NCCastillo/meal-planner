@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import createMenu from '../actions/CreateMenuActionCreators';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import Menu from './Menu';
 import BlankSlate from './BlankSlate';
 
 
@@ -43,7 +44,7 @@ class Home extends Component {
   }
 
   render() {
-    const { errors, loading } = this.props;
+    const { errors, loading, currentMenu } = this.props;
 
     return (
       <div>
@@ -54,24 +55,30 @@ class Home extends Component {
             { errors.map((error, i) => <li key={i}>{error}</li>) }
           </div>
         }
-        <BlankSlate 
-          iconName='fa fa-calendar fa-3x' 
-          title="Hey there! Looks like you don't have any menus as yet."
-          meta='Select your first week.'>
-        <form onSubmit={this.handleSubmit}>
-          <DatePicker
-            selected={this.state.startDate}
-            selectsStart  startDate={this.state.startDate}
-            endDate={this.state.endDate}
-            onChange={this.handleChangeStart} />
-          <DatePicker
-            selected={this.state.endDate}
-            selectsEnd  startDate={this.state.startDate}
-            endDate={this.state.endDate}
-            onChange={this.handleChangeEnd} />
-          <button type="submit" className={`btn btn-primary btn-sm ${loading ? 'loading' : ''}`}>Start</button>
-        </form>
-      </BlankSlate>
+
+        {
+          currentMenu ? (<Menu {...this.props} />) : (
+            <BlankSlate 
+              iconName='fa fa-calendar fa-3x' 
+              title="Hey there! Looks like you don't have any menus as yet."
+              meta='Select your first week.'>
+              <form onSubmit={this.handleSubmit}>
+                <DatePicker
+                  selected={this.state.startDate}
+                  selectsStart  startDate={this.state.startDate}
+                  endDate={this.state.endDate}
+                  onChange={this.handleChangeStart} />
+                <DatePicker
+                  selected={this.state.endDate}
+                  selectsEnd  startDate={this.state.startDate}
+                  endDate={this.state.endDate}
+                  onChange={this.handleChangeEnd} />
+                <button type="submit" className={`btn btn-primary btn-sm ${loading ? 'loading' : ''}`}>Start</button>
+              </form>
+          </BlankSlate>
+          )
+        }
+        
       </div>
     )
   }

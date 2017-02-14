@@ -6,9 +6,11 @@ import { getCurrentMenu } from '../actions/CreateMenuActionCreators';
 export default function(WrappedComponent) {
   class Auth extends Component {
     componentDidMount() {
-      const { dispatch } = this.props;
+      const { dispatch, authenticated } = this.props;
 
-      dispatch(getCurrentMenu());
+      if (authenticated) {
+        dispatch(getCurrentMenu());
+      }
     }
 
     componentWillMount() {
