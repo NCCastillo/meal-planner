@@ -57,7 +57,7 @@ class Home extends Component {
         }
 
         {
-          currentMenu ? (<Menu {...this.props} />) : (
+          Object.keys(currentMenu).length !== 0 ? (<Menu {...this.props} />) : (
             <BlankSlate 
               iconName='fa fa-calendar fa-3x' 
               title="Hey there! Looks like you don't have any menus as yet."

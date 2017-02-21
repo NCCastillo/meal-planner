@@ -72,7 +72,8 @@ export function getCurrentMenu() {
         // Server throwing 402 with error but we are expecting errors array
         dispatch(createMenuFailure(json.errors || ["Opps something went wrong!"]));
       } else {
-        dispatch(currentMenu(json.menus[0]))
+        console.log(json.menu);
+        dispatch(currentMenu(json.menu))
       }
     })
     .catch(error => {
