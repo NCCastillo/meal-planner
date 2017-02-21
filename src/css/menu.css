@@ -1,0 +1,36 @@
+.menu-list {
+  list-style: none;
+}
+
+.menu-card {
+  background: #fff;
+  border: 3px solid #efefef;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 10px;
+  height: 75px;
+}
+
+.menu-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.menu-option {
+  width: 25%;
+  float: left;
+  font-size: 20px;
+  line-height: 48px;
+}
+
+.meal-name {
+  margin-left: 25%;
+  font-size: 20px;
+  line-height: 48px;
+  font-weight: bold;
+}
+
+.menu-option-title {
+  margin-left: 10px;
+  text-transform: capitalize;
+}
