@@ -47,38 +47,44 @@ class Home extends Component {
     const { errors, loading, currentMenu } = this.props;
 
     return (
-      <div>
-        { errors.length > 0  && 
-          <div className="toast toast-danger">
-            <button className="btn btn-clear float-right"></button>
-            <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
-            { errors.map((error, i) => <li key={i}>{error}</li>) }
+      <div className="container">
+        <div className="columns">
+          <div className="column col-12">
+            { errors.length > 0  && 
+              <div className="toast toast-danger">
+                <button className="btn btn-clear float-right"></button>
+                <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
+                { errors.map((error, i) => <li key={i}>{error}</li>) }
+              </div>
+            }
           </div>
-        }
-
+        </div>
         {
           Object.keys(currentMenu).length !== 0 ? (<Menu {...this.props} />) : (
-            <BlankSlate 
-              iconName='fa fa-calendar fa-3x' 
-              title="Hey there! Looks like you don't have any menus as yet."
-              meta='Select your first week.'>
-              <form onSubmit={this.handleSubmit}>
-                <DatePicker
-                  selected={this.state.startDate}
-                  selectsStart  startDate={this.state.startDate}
-                  endDate={this.state.endDate}
-                  onChange={this.handleChangeStart} />
-                <DatePicker
-                  selected={this.state.endDate}
-                  selectsEnd  startDate={this.state.startDate}
-                  endDate={this.state.endDate}
-                  onChange={this.handleChangeEnd} />
-                <button type="submit" className={`btn btn-primary btn-sm ${loading ? 'loading' : ''}`}>Start</button>
-              </form>
-          </BlankSlate>
+            <div className="columns">
+              <div className="column col-6">
+                <BlankSlate 
+                  iconName='fa fa-calendar fa-3x' 
+                  title="Hey there! Looks like you don't have any menus as yet."
+                  meta='Select your first week.'>
+                    <form onSubmit={this.handleSubmit}>
+                      <DatePicker
+                        selected={this.state.startDate}
+                        selectsStart  startDate={this.state.startDate}
+                        endDate={this.state.endDate}
+                        onChange={this.handleChangeStart} />
+                      <DatePicker
+                        selected={this.state.endDate}
+                        selectsEnd  startDate={this.state.startDate}
+                        endDate={this.state.endDate}
+                        onChange={this.handleChangeEnd} />
+                      <button type="submit" className={`btn btn-primary btn-sm ${loading ? 'loading' : ''}`}>Start</button>
+                    </form>
+                </BlankSlate>
+              </div>
+            </div>
           )
         }
-        
       </div>
     )
   }

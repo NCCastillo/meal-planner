@@ -1,4 +1,5 @@
 .menu-list {
+  margin: 20px;
   list-style: none;
 }
 
@@ -34,3 +35,45 @@
   margin-left: 10px;
   text-transform: capitalize;
 }
+
+#menu-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+ 
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+    
+  padding: 5% 0;
+}
+
+#menu-canvas.show-nav {
+  -webkit-transform: translateX(-420px);
+  transform: translateX(-420px);
+  
+  -webkit-transform: translate3d(-420px, 0, 0);
+  transform: translate3d(-420px, 0, 0);
+}
+
+#menu-nav {
+  width: 400px;
+  position: absolute;
+  right: -420px;
+  background: #428bca;
+  padding: 15px;
+}
+
+.toggle-menu-nav {
+  position: relative;
+  z-index: 5;
+}
+
