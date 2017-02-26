@@ -12,7 +12,7 @@ class App extends Component {
     if(authenticated) {
       return (
         <div className="columns">
-          <div className="col-lg-3 no-padding">
+          <div className="column col-1 no-padding">
             <div className="side-bar-left">
               <ul>
                 <li>
@@ -33,7 +33,7 @@ class App extends Component {
               </ul>
             </div>
           </div>
-          <div className="col-lg-9">
+          <div className="column col-11">
             <div id="main-content">
               { this.props.children }
             </div>
